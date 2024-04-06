@@ -36,17 +36,13 @@ body {
     max-width: 100%;
   }
   
-  .sticker button {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    background-color: #333;
-    color: white;
-    border: none;
-    cursor: pointer;
-  }
-  
   .sticker button:hover {
     background-color: #444;
   }
   
+  .container{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+  }
