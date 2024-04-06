@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sticker Details</title>
-  <link rel="stylesheet" href="styles.css"> <!-- Assuming you have a CSS file named styles.css -->
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="container">
@@ -27,12 +27,6 @@
       const urlParams = new URLSearchParams(queryString);
       const stickerId = urlParams.get('id'); // Get sticker ID from URL parameter
 
-      // // Dummy sticker data
-      // const stickers = [
-      //   { id: 1, name: 'Animal Sticker 1', image: 'animal1.jpg', description: 'This is an animal sticker.' },
-      //   { id: 2, name: 'Movie Sticker 1', image: 'movie1.jpg', description: 'This is a movie sticker.' },
-      //   // Add more stickers here
-      // ];
 
       // Find the sticker with the given ID
       const sticker = stickers.find(s => s.id === parseInt(stickerId));
