@@ -20,13 +20,12 @@
     </div>
   </div>
 
-  <script>
+  <script type="module">
     import stickers from "./stickers.js";
     document.addEventListener('DOMContentLoaded', function() {
       const queryString = window.location.search;
       const urlParams = new URLSearchParams(queryString);
-      const stickerId = urlParams.get('id'); // Get sticker ID from URL parameter
-
+      const stickerId = urlParams.get('id');
 
       // Find the sticker with the given ID
       const sticker = stickers.find(s => s.id === parseInt(stickerId));
