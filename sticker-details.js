@@ -18,9 +18,10 @@ document.addEventListener("DOMContentLoaded", function () {
     ).textContent = `#tags: ${sticker.tags}`;
 
     // Check if user is logged in
-    const isLoggedIn = false; // Replace with your authentication logic
+    const isLoggedIn = true; // Replace with your authentication logic
     if (!isLoggedIn) {
-      document.getElementById("loginPrompt").style.display = "block";
+      document.getElementById("loginPrompt").style.display = "flex";
+      document.getElementById("loginPrompt").style.gap = "1rem";
       document.getElementById("buyButton").style.display = "none";
       document
         .getElementById("loginButton")
