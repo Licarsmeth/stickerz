@@ -31,9 +31,19 @@ body {
     border: 1px solid #ccc;
     padding: 10px;
   }
+
+  .sticker-name{
+    text-align: center;
+  }
+
+  .sticker-price{
+    color: red;
+    font-size: large;
+  }
   
   .sticker img {
     max-width: 100%;
+    height: 90%;
   }
   
   .sticker button:hover {
