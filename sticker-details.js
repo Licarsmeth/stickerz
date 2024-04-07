@@ -9,8 +9,10 @@ import stickers from "./stickers.js";
 
       if (sticker) {
         // Display sticker details
+        document.querySelector('.container h1').textContent = sticker.name;
         document.getElementById('stickerImage').src = `images/${sticker.image}`;
         document.getElementById('stickerDescription').textContent = sticker.description;
+        document.getElementById('stickerTags').textContent = `#tags: ${sticker.tags}`;
 
         // Check if user is logged in
         const isLoggedIn = true; // Replace with your authentication logic

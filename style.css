@@ -56,3 +56,11 @@ body {
     gap: 2rem;
     align-items: center;
   }
+
+  #stickerDescription{
+    font-size: large;
+  }
+
+  #stickerTags{
+    font-size: small;
+  }
