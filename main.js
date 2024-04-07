@@ -2,9 +2,6 @@ import stickers from "./stickers.js";
 import displayStickers from "./displayStickers.js";
 
 document.addEventListener('DOMContentLoaded', function() {
-
-  // const stickerGrid = document.getElementById('stickerGrid');
-  
   displayStickers(stickers);
 });
 
