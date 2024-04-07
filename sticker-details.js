@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Display sticker details
     document.querySelector(".container h1").textContent = sticker.name;
     document.getElementById("stickerImage").src = `images/${sticker.image}`;
+    document.getElementById("stickerPrice").textContent = sticker.price;
     document.getElementById("stickerDescription").textContent =
       sticker.description;
     document.getElementById(
