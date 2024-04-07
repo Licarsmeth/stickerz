@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Upload Sticker</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <h1>Stickerz</h1>
+        <div>
+          <a href="index.html" id="home">Home</a>
+          <a href="upload.html">Upload</a>
+          <input type="text" id="searchBar" placeholder="Search tags..." />
+        </div>
+      </nav>
+    </header>
+    <div class="form-container">
+        <form action="/api/sticker/add" method="post" enctype="multipart/form-data">
+          <label class="form-label">Name: <input type="text" class="form-input" name="name" placeholder="Sticker Name" required /></label>
+          <label class="form-label">Description: <input type="text" class="form-input" name="description" placeholder="Description" required /></label>
+          <label class="form-label">Price: <input type="text" class="form-input" name="price" placeholder="Price" required /></label>
+          <label class="form-label" id="tagLabel">Tags: <button type="button" class="add-button" onclick="newTag();">Add</button></label>
+          <label class="form-label">Images: (png, multiple supported) <input type="file" class="form-input" name="sticker_images" accept="image/*" multiple required/></label>
+          <button type="submit" class="submit-button">Add Sticker!</button>
+        </form>
+      </div>
+      
+  </body>
+</html>

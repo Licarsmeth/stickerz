@@ -15,6 +15,16 @@ body {
     justify-content: space-between;
     align-items: center;
   }
+
+  nav div{
+    display: flex;
+    gap: 1rem;
+  }
+
+  #searchBar{
+    height: 1rem;
+    align-self: center;
+  }
   
   nav h1 {
     margin: 0;
@@ -96,4 +106,80 @@ body {
 /* Active Effect */
 .button:active {
   transform: translateY(1px);
+}
+
+/* Basic Link Style */
+nav a {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 1rem;
+  text-decoration: none;
+  color: #ccc;
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+/* Hover Effect */
+nav a:hover {
+  background-color: #ccc;
+  color: black;
+}
+
+/* Active Effect */
+nav a:active {
+  transform: translateY(1px);
+}
+
+/* Form Container */
+.form-container {
+
+  max-width: 400px;
+  margin: 1rem auto;
+}
+
+/* Form Label */
+.form-label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+/* Form Input */
+.form-input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Add Button */
+.add-button {
+  padding: 8px 12px;
+  margin-left: 5px;
+  border: none;
+  border-radius: 5px;
+  background-color: #333;
+  color: white;
+  cursor: pointer;
+}
+
+.add-button:hover {
+  background-color: #ccc;
+  color: black;
+}
+
+/* Submit Button */
+.submit-button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #333;
+  color: white;
+  cursor: pointer;
+}
+
+.submit-button:hover {
+  background-color: #ccc;
+  color: black;
 }
