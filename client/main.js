@@ -1,7 +1,11 @@
-import stickers from "./stickers.js";
 import displayStickers from "./displayStickers.js";
+import { ApiRoutes } from "./ApiRoutes.js";
 
-document.addEventListener('DOMContentLoaded', function() {
+let stickers = []
+
+document.addEventListener('DOMContentLoaded', async function() {
+  const res = await fetch(`${ApiRoutes.Stickers}`);
+  stickers = await res.json();
   displayStickers(stickers);
 });
 

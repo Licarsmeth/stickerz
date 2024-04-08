@@ -18,11 +18,7 @@
       </nav>
     </header>
     <div class="form-container">
-      <form
-        action="/api/sticker/add"
-        method="post"
-        enctype="multipart/form-data"
-      >
+      <form id="stickerForm">
         <label class="form-label"
           >Name:
           <input
@@ -50,16 +46,16 @@
             placeholder="Price"
             required
         /></label>
-            <div id="tagContainer">
-              <div class="tag-row">
-                <label class="form-label">
-                  Tags:
-                  <button type="button" class="add-button" onclick="newTag();">
-                    Add
-                  </button>
-                </label>
-              </div>
-            </div>
+        <div id="tagContainer">
+          <div class="tag-row">
+            <label class="form-label">
+              Tags:
+              <button type="button" class="add-button" onclick="newTag();">
+                Add
+              </button>
+            </label>
+          </div>
+        </div>
         <label class="form-label"
           >Images: (png, multiple supported)
           <input
@@ -68,11 +64,16 @@
             name="sticker_images"
             accept="image/*"
             multiple
-            required
         /></label>
-        <button type="submit" class="submit-button">Add Sticker!</button>
+        <button
+          type="submit"
+          class="submit-button"
+          onclick="submitForm(event);"
+        >
+          Add Sticker!
+        </button>
       </form>
     </div>
-   <script src="upload.js"></script>
+    <script src="upload.js"></script>
   </body>
 </html>

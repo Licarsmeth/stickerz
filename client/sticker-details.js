@@ -1,22 +1,31 @@
-import stickers from "./stickers.js";
-document.addEventListener("DOMContentLoaded", function () {
+import { ApiRoutes } from "./ApiRoutes.js";
+const webUrl = "http://ashwink.com.np:6969";
+document.addEventListener("DOMContentLoaded", async function () {
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
   const stickerId = urlParams.get("id");
 
   // Find the sticker with the given ID
-  const sticker = stickers.find((s) => s.id === parseInt(stickerId));
+  const res = await fetch(ApiRoutes.GetSticker + `?sticker_id=${stickerId}`);
+  const sticker = await res.json();
 
   if (sticker) {
     // Display sticker details
-    document.querySelector(".container h1").textContent = sticker.name;
-    document.getElementById("stickerImage").src = `images/${sticker.image}`;
-    document.getElementById("stickerPrice").textContent = sticker.price;
+    document.querySelector(".container h1").textContent = sticker.Stkr.Name;
+
+    const imageContainer = document.getElementById("stickerImageContainer");
+    console.log(sticker.Images);
+    sticker?.Images.forEach(image => {
+      var imgElement = document.createElement("img");
+      imgElement.src = `${webUrl}${image?.Path}`;
+      imageContainer.appendChild(imgElement);
+    })
+    document.getElementById("stickerPrice").textContent = sticker.Stkr.Price;
     document.getElementById("stickerDescription").textContent =
-      sticker.description;
-    document.getElementById(
-      "stickerTags"
-    ).textContent = `#tags: ${sticker.tags}`;
+      sticker.Stkr.Description;
+    document.getElementById("stickerTags").textContent = `#tags: ${
+      sticker.Tags?.map((t) => t.Name).join(", ") ?? ""
+    }`;
 
     // Check if user is logged in
     const isLoggedIn = true; // Replace with your authentication logic
@@ -38,7 +47,7 @@ document.addEventListener("DOMContentLoaded", function () {
         .getElementById("buyButton")
         .addEventListener("click", function () {
           // Implement buy functionality here
-          alert("Sticker purchased!");
+          alert(`Message 986847584 typing ` + stickerId);
         });
     }
   } else {
