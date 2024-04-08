@@ -1,3 +1,4 @@
+const webUrl = "http://ashwink.com.np:6969"
 export default function displayStickers(stickers) {
     stickerGrid.innerHTML = '';
     stickers.forEach(sticker => {
@@ -6,7 +7,7 @@ export default function displayStickers(stickers) {
       stickerDiv.classList.add('sticker');
       //images
       const img = document.createElement('img');
-      img.src = `../server${sticker?.Images?.[0]?.Path ?? ''}`; 
+      img.src = `${webUrl}${sticker?.Images?.[0]?.Path ?? ''}`;
       img.alt = `${sticker.image}`;
       stickerDiv.appendChild(img);
 
