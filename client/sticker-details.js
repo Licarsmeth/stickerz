@@ -12,9 +12,14 @@ document.addEventListener("DOMContentLoaded", async function () {
   if (sticker) {
     // Display sticker details
     document.querySelector(".container h1").textContent = sticker.Stkr.Name;
-    document.getElementById("stickerImage").src = `${webUrl}${
-      sticker?.Images?.[0]?.Path ?? ""
-    }`;
+
+    const imageContainer = document.getElementById("stickerImageContainer");
+    console.log(sticker.Images);
+    sticker?.Images.forEach(image => {
+      var imgElement = document.createElement("img");
+      imgElement.src = `${webUrl}${image?.Path}`;
+      imageContainer.appendChild(imgElement);
+    })
     document.getElementById("stickerPrice").textContent = sticker.Stkr.Price;
     document.getElementById("stickerDescription").textContent =
       sticker.Stkr.Description;
