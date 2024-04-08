@@ -50,12 +50,16 @@
             placeholder="Price"
             required
         /></label>
-        <label class="form-label" id="tagLabel"
-          >Tags:
-          <button type="button" class="add-button" onclick="newTag();">
-            Add
-          </button></label
-        >
+            <div id="tagContainer">
+              <div class="tag-row">
+                <label class="form-label">
+                  Tags:
+                  <button type="button" class="add-button" onclick="newTag();">
+                    Add
+                  </button>
+                </label>
+              </div>
+            </div>
         <label class="form-label"
           >Images: (png, multiple supported)
           <input
@@ -97,7 +101,7 @@
 
       function newTag() {
         const data = {
-          containerId: "tagLabel", // ID of the container element
+          containerId: "tagContainer", // ID of the container element
           name: "tags",
           type: "text",
           placeholder: "Tag",
