@@ -27,6 +27,18 @@
           <button type="submit" class="submit-button">Add Sticker!</button>
         </form>
       </div>
-      
+      <script>
+         function appendElement(rootId, name, type, placeholder){
+      label = document.getElementById(rootId);
+      tag = document.createElement("input");
+      tag.name = name;
+      tag.type = type;
+      tag.placeholder = placeholder;
+      return label.appendChild(tag);
+  }
+  function newTag(){
+      appendElement("tagLabel", "tags", "text", "Tag");
+  }
+      </script>
   </body>
 </html>
