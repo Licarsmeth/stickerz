@@ -44,7 +44,7 @@ function submitForm(event) {
   const formData = new FormData(form);
 
   // Make a POST request to the server
-  fetch("http://ashwink.com.np:6969/api/sticker/add", {
+  fetch("https://stickers.ashwink.com.np/api/sticker/add", {
     method: "POST",
     body: formData,
   })

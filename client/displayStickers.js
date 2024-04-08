@@ -1,4 +1,4 @@
-const webUrl = "http://ashwink.com.np:6969"
+const webUrl = "https://stickers.ashwink.com.np"
 export default function displayStickers(stickers) {
     stickerGrid.innerHTML = '';
     stickers.forEach(sticker => {

@@ -1,4 +1,4 @@
-const baseUrl = "http://ashwink.com.np:6969/api/";
+const baseUrl = "https://stickers.ashwink.com.np/api/";
 export const ApiRoutes = {
     Login: baseUrl + "login",
     Signup: baseUrl + "signup",

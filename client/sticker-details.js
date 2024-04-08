@@ -1,5 +1,5 @@
 import { ApiRoutes } from "./ApiRoutes.js";
-const webUrl = "http://ashwink.com.np:6969";
+const webUrl = "https://stickers.ashwink.com.np";
 document.addEventListener("DOMContentLoaded", async function () {
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
