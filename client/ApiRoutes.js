@@ -1,4 +1,4 @@
-const baseUrl = "http://localhost:80/api/";
+const baseUrl = "http://ashwink.com.np:6969";
 export const ApiRoutes = {
     Login: baseUrl + "login",
     Signup: baseUrl + "signup",
