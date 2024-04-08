@@ -18,27 +18,92 @@
       </nav>
     </header>
     <div class="form-container">
-        <form action="/api/sticker/add" method="post" enctype="multipart/form-data">
-          <label class="form-label">Name: <input type="text" class="form-input" name="name" placeholder="Sticker Name" required /></label>
-          <label class="form-label">Description: <input type="text" class="form-input" name="description" placeholder="Description" required /></label>
-          <label class="form-label">Price: <input type="text" class="form-input" name="price" placeholder="Price" required /></label>
-          <label class="form-label" id="tagLabel">Tags: <button type="button" class="add-button" onclick="newTag();">Add</button></label>
-          <label class="form-label">Images: (png, multiple supported) <input type="file" class="form-input" name="sticker_images" accept="image/*" multiple required/></label>
-          <button type="submit" class="submit-button">Add Sticker!</button>
-        </form>
-      </div>
-      <script>
-         function appendElement(rootId, name, type, placeholder){
-      label = document.getElementById(rootId);
-      tag = document.createElement("input");
-      tag.name = name;
-      tag.type = type;
-      tag.placeholder = placeholder;
-      return label.appendChild(tag);
-  }
-  function newTag(){
-      appendElement("tagLabel", "tags", "text", "Tag");
-  }
-      </script>
+      <form
+        action="/api/sticker/add"
+        method="post"
+        enctype="multipart/form-data"
+      >
+        <label class="form-label"
+          >Name:
+          <input
+            type="text"
+            class="form-input"
+            name="name"
+            placeholder="Sticker Name"
+            required
+        /></label>
+        <label class="form-label"
+          >Description:
+          <input
+            type="text"
+            class="form-input"
+            name="description"
+            placeholder="Description"
+            required
+        /></label>
+        <label class="form-label"
+          >Price:
+          <input
+            type="text"
+            class="form-input"
+            name="price"
+            placeholder="Price"
+            required
+        /></label>
+        <label class="form-label" id="tagLabel"
+          >Tags:
+          <button type="button" class="add-button" onclick="newTag();">
+            Add
+          </button></label
+        >
+        <label class="form-label"
+          >Images: (png, multiple supported)
+          <input
+            type="file"
+            class="form-input"
+            name="sticker_images"
+            accept="image/*"
+            multiple
+            required
+        /></label>
+        <button type="submit" class="submit-button">Add Sticker!</button>
+      </form>
+    </div>
+    <script>
+      function appendElement(data) {
+        const container = document.getElementById(data.containerId);
+
+        // Create input element
+        const tagInput = document.createElement("input");
+        tagInput.name = data.name;
+        tagInput.type = data.type;
+        tagInput.placeholder = data.placeholder;
+
+        // Create button for removing the tag
+        const removeButton = document.createElement("button");
+        removeButton.textContent = "Remove";
+        removeButton.type = "button"; // Prevents it from submitting the form
+
+        // Add event listener to remove the tag on button click
+        removeButton.addEventListener("click", function () {
+          container.removeChild(tagInput);
+          container.removeChild(removeButton);
+        });
+
+        // Append input element and remove button to container
+        container.appendChild(tagInput);
+        container.appendChild(removeButton);
+      }
+
+      function newTag() {
+        const data = {
+          containerId: "tagLabel", // ID of the container element
+          name: "tags",
+          type: "text",
+          placeholder: "Tag",
+        };
+        appendElement(data);
+      }
+    </script>
   </body>
 </html>
