@@ -1,22 +1,24 @@
+import { ApiRoutes } from "./ApiRoutes.js";
 import stickers from "./stickers.js";
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", async function () {
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
   const stickerId = urlParams.get("id");
 
   // Find the sticker with the given ID
-  const sticker = stickers.find((s) => s.id === parseInt(stickerId));
+  const res = await fetch(ApiRoutes.GetSticker + `?sticker_id=${stickerId}`)
+  const sticker = await res.json();
 
   if (sticker) {
     // Display sticker details
-    document.querySelector(".container h1").textContent = sticker.name;
-    document.getElementById("stickerImage").src = `images/${sticker.image}`;
-    document.getElementById("stickerPrice").textContent = sticker.price;
+    document.querySelector(".container h1").textContent = sticker.Stkr.Name;
+    document.getElementById("stickerImage").src = `../server${sticker?.Images?.[0]?.Path ?? ''}`;
+    document.getElementById("stickerPrice").textContent = sticker.Stkr.Price;
     document.getElementById("stickerDescription").textContent =
-      sticker.description;
+      sticker.Stkr.Description;
     document.getElementById(
       "stickerTags"
-    ).textContent = `#tags: ${sticker.tags}`;
+    ).textContent = `#tags: ${sticker.Tags?.map(t => t.Name).join(", ") ?? ""}`;
 
     // Check if user is logged in
     const isLoggedIn = true; // Replace with your authentication logic

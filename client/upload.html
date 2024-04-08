@@ -18,12 +18,12 @@
       </nav>
     </header>
     <div class="form-container">
-        <form action="/api/sticker/add" method="post" enctype="multipart/form-data">
+        <form id="stickerForm">
           <label class="form-label">Name: <input type="text" class="form-input" name="name" placeholder="Sticker Name" required /></label>
           <label class="form-label">Description: <input type="text" class="form-input" name="description" placeholder="Description" required /></label>
           <label class="form-label">Price: <input type="text" class="form-input" name="price" placeholder="Price" required /></label>
           <label class="form-label" id="tagLabel">Tags: <button type="button" class="add-button" onclick="newTag();">Add</button></label>
-          <label class="form-label">Images: (png, multiple supported) <input type="file" class="form-input" name="sticker_images" accept="image/*" multiple required/></label>
+          <label class="form-label">Images: (png, multiple supported) <input type="file" class="form-input" name="sticker_images" accept="image/*" multiple/></label>
           <button type="submit" class="submit-button">Add Sticker!</button>
         </form>
       </div>
@@ -39,6 +39,29 @@
   function newTag(){
       appendElement("tagLabel", "tags", "text", "Tag");
   }
+
+      const form = document.getElementById("stickerForm");
+      form.addEventListener('submit', async e => {
+        e.preventDefault();
+        const formData = new FormData(form);
+        console.log(formData)
+
+        try {
+          const response = await fetch('http://localhost:80/api/sticker/add', {
+              method: 'POST',
+              body: formData
+          });
+
+          if (!response.ok) {
+              throw new Error('Failed to add sticker');
+          }
+
+          console.log('Sticker added successfully');
+        }
+        catch (error) {
+            console.log('Error adding sticker:', error.message);
+        }
+      })
       </script>
   </body>
 </html>
