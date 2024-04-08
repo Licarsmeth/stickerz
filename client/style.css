@@ -132,7 +132,6 @@ nav a:active {
 
 /* Form Container */
 .form-container {
-
   max-width: 400px;
   margin: 1rem auto;
 }
@@ -140,7 +139,8 @@ nav a:active {
 /* Form Label */
 .form-label {
   display: block;
-  margin-bottom: 10px;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
   font-weight: bold;
 }
 
