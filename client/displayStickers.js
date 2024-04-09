@@ -1,30 +1,30 @@
+const webUrl = "https://stickers.ashwink.com.np"
 export default function displayStickers(stickers) {
     stickerGrid.innerHTML = '';
     stickers.forEach(sticker => {
       //main div
       const stickerDiv = document.createElement('div');
       stickerDiv.classList.add('sticker');
-
       //images
       const img = document.createElement('img');
-      img.src = `images/${sticker.image}`; 
+      img.src = `${webUrl}${sticker?.Images?.[0]?.Path ?? ''}`;
       img.alt = `${sticker.image}`;
       stickerDiv.appendChild(img);
 
       //sticker name
       const name = document.createElement('div');
       name.classList.add('sticker-name');
-      name.textContent = `${sticker.name}`
+      name.textContent = `${sticker.Stkr.Name}`
       stickerDiv.appendChild(name);
 
       //sticker price
       const price = document.createElement('div');
       price.classList.add('sticker-price');
-      price.textContent = `${sticker.price}`
+      price.textContent = `${sticker.Stkr.Price}`
       stickerDiv.appendChild(price);
       
       stickerDiv.addEventListener('click', function() {
-        navigateToStickerPage(sticker.id);
+        navigateToStickerPage(sticker.Stkr.Id);
       });
       stickerGrid.appendChild(stickerDiv);
     });
