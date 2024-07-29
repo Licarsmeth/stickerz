@@ -4,7 +4,7 @@ import { ApiRoutes } from "./ApiRoutes.js";
 let stickers = []
 
 document.addEventListener('DOMContentLoaded', async function() {
-  const res = await fetch(`${ApiRoutes.Stickers}`);
+  const res = await fetch(`${ApiRoutes.Stickers}`); // the data from the base url is fetched
   stickers = await res.json();
   displayStickers(stickers);
 });
