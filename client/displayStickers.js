@@ -30,6 +30,7 @@ export default function displayStickers(stickers) {
     });
   }
   
-  function navigateToStickerPage(stickerId) {
+  // redirect to the new particular page with the given id.
+  function navigateToStickerPage( stickerId ) {
     window.location.href = `sticker-details.html?id=${stickerId}`;
   }
