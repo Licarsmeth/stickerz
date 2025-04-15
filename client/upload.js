@@ -43,10 +43,14 @@ function submitForm(event) {
   // Collect form data
   const formData = new FormData(form);
 
+  //set cookie
+  document.cookie = "login_token=admin";
+
   // Make a POST request to the server
-  fetch("https://stickers.ashwink.com.np/api/sticker/add", {
+  fetch("https://shop.ashwink.com.np/api/sticker/add", {
     method: "POST",
     body: formData,
+    credentials: "include",
   })
     .then((response) => response.json())
     .then((data) => {

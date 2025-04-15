@@ -1,5 +1,5 @@
 import { ApiRoutes } from "./ApiRoutes.js";
-const webUrl = "https://stickers.ashwink.com.np";
+const webUrl = "https://shop.ashwink.com.np";
 document.addEventListener("DOMContentLoaded", async function () {
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
@@ -15,11 +15,11 @@ document.addEventListener("DOMContentLoaded", async function () {
 
     const imageContainer = document.getElementById("stickerImageContainer");
     console.log(sticker.Images);
-    sticker?.Images.forEach(image => {
+    sticker?.Images.forEach((image) => {
       var imgElement = document.createElement("img");
       imgElement.src = `${webUrl}${image?.Path}`;
       imageContainer.appendChild(imgElement);
-    })
+    });
     document.getElementById("stickerPrice").textContent = sticker.Stkr.Price;
     document.getElementById("stickerDescription").textContent =
       sticker.Stkr.Description;
