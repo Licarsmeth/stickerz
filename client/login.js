@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
     token = btoa(username + ":" + password);
     try {
       const response = await fetch(
-        "https://stickers.ashwink.com.np/api/login",
+        "https://shop.ashwink.com.np/api/login",
         {
           method: "POST",
           headers: {
