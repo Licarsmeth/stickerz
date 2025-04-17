@@ -80,7 +80,7 @@ loginForm.addEventListener("submit", async (e) => {
 
 logoutButton.addEventListener("click", () => {
   // Clear authentication state
-  document.execCommand("ClearAuthenticationCache");
+  // Not implemented yet
   showSignupForm();
   alert("Logged out successfully!");
 });
