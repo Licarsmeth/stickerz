@@ -61,7 +61,7 @@ loginForm.addEventListener("submit", async (e) => {
     const password = formData.get("password");
 
     const response = await fetch("/api/login", {
-      method: "GET",
+      method: "POST",
       headers: {
         Authorization: `Basic ${btoa(`${user}:${password}`)}`,
       },

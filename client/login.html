@@ -46,56 +46,64 @@
   </body>
 </html>-->
 
-
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Authentication</title>
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-  <header>
-    <nav>
-      <h1>Tas Consultancy</h1>
-      <div>
-        <a href="index.html">Home</a>
-        <a href="shop.html">Shop</a>
-        <a href="upload.html">Upload</a>
-        <a href="login.html">Login</a>
-        <input type="text" id="searchBar" placeholder="Search tags..." />
-      </div>
-    </nav>
-  </header>
-  <div class="login-container">
-    <!-- Signup Form -->
-    <form id="signup-form">
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <h1>Tas Consultancy</h1>
+        <div>
+          <a href="index.html">Home</a>
+          <a href="shop.html">Shop</a>
+          <a href="upload.html">Upload</a>
+          <a href="login.html">Login</a>
+          <input type="text" id="searchBar" placeholder="Search tags..." />
+        </div>
+      </nav>
+    </header>
+    <div class="login-container">
+      <!-- Signup Form -->
+      <form id="signup-form">
         <h2>Sign Up</h2>
-        <input type="text" name="user" placeholder="Username" required>
-        <input type="password" name="password" placeholder="Password" required>
-        <input type="tel" name="phone_no" placeholder="Phone Number" required>
+        <input type="text" name="user" placeholder="Username" required />
+        <input
+          type="password"
+          name="password"
+          placeholder="Password"
+          required
+        />
+        <input type="tel" name="phone_no" placeholder="Phone Number" required />
         <button type="submit">Sign Up</button>
         <p>Already have an account? <a href="#" id="login-link">Login</a></p>
-    </form>
+      </form>
 
-    <!-- Login Form -->
-    <form id="login-form" style="display: none;">
+      <!-- Login Form -->
+      <form id="login-form" style="display: none">
         <h2>Login</h2>
-        <input type="text" name="user" placeholder="Username" required>
-        <input type="password" name="password" placeholder="Password" required>
+        <input type="text" name="user" placeholder="Username" required />
+        <input
+          type="password"
+          name="password"
+          placeholder="Password"
+          required
+        />
         <button type="submit">Login</button>
         <p>Don't have an account? <a href="#" id="signup-link">Sign Up</a></p>
-    </form>
+      </form>
 
-    <!-- Logout Section -->
-    <div id="logout-section" style="display: none;">
+      <!-- Logout Section -->
+      <div id="logout-section" style="display: none">
         <h2>Welcome, <span id="username-display"></span>!</h2>
         <button id="logout-button">Logout</button>
+      </div>
     </div>
-</div>
 
-    <script src="script.js"></script>
-</body>
+    <script src="js/authentication.js"></script>
+  </body>
 </html>
-
