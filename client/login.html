@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!--<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -20,8 +20,8 @@
       </nav>
     </header>
     <div class="login-container">
-      <h1>Login</h1>
-      <form id="login-form">
+       <h1>Login</h1>
+      <form id="login-form"> 
         <label for="username">Username:</label>
         <input
           type="text"
@@ -44,4 +44,55 @@
     </div>
     <script src="/js/login.js"></script>
   </body>
+</html>-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authentication</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <h1>Tas Consultancy</h1>
+      <div>
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="upload.html">Upload</a>
+        <a href="login.html">Login</a>
+        <input type="text" id="searchBar" placeholder="Search tags..." />
+      </div>
+    </nav>
+  </header>
+    <div class="login-container">
+        <div id="signup-form">
+            <h2>Sign Up</h2>
+            <input type="text" id="signup-user" placeholder="Username" required>
+            <input type="password" id="signup-password" placeholder="Password" required>
+            <input type="tel" id="signup-phone" placeholder="Phone Number" required>
+            <button id="signup-button">Sign Up</button>
+            <p>Already have an account? <a href="#" id="login-link">Login</a></p>
+        </div>
+
+        <div id="login-form" style="display: none;">
+            <h2>Login</h2>
+            <input type="text" id="login-user" placeholder="Username" required>
+            <input type="password" id="login-password" placeholder="Password" required>
+            <button id="login-button">Login</button>
+            <p>Don't have an account? <a href="#" id="signup-link">Sign Up</a></p>
+        </div>
+
+        <div id="logout-section" style="display: none;">
+            <h2>Welcome, <span id="username-display"></span>!</h2>
+            <button id="logout-button">Logout</button>
+        </div>
+    </div>
+
+    <script src="js/authentication.js"></script>
+</body>
 </html>
+
