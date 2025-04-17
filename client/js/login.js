@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }
 
       console.log(await response.body);
-      window.location.href = "/index.html"; // Redirect to dashboard on successful login
+      window.location.href = "/shop.html"; // Redirect to dashboard on successful login
       return;
     } catch (error) {
       errorMessage.textContent = error.message;

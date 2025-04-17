@@ -2,6 +2,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    background-color: whitesmoke;
   }
   
   header {
@@ -9,6 +10,7 @@ body {
     color: white;
     padding: 10px;
   }
+
   
   nav {
     display: flex;
@@ -59,7 +61,7 @@ body {
   .sticker button:hover {
     background-color: #444;
   }
-
+  
   .sticker-details{
     display: flex;
     flex-direction: column;
@@ -80,7 +82,7 @@ body {
   #stickerTags{
     font-size: small;
   }
-
+  
   /* Basic Button Style */
 .button {
   display: inline-block;
@@ -228,3 +230,8 @@ body .login-container {
   color: red;
   text-align: center;
 }
+
+  footer {
+    position: absolute;
+    bottom: 10px;
+  }

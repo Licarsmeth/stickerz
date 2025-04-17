@@ -4,14 +4,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tas Consultancy</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="css/indexstyle.css" />
   </head>
   <body>
     <header>
       <nav>
         <h1>Tas Consultancy</h1>
         <div>
-          <a href="#">Home</a>
+          <a href="index.html">Home</a>
+          <a href="shop.html">Shop</a>
           <a href="upload.html">Upload</a>
           <a href="login.html">Login</a>
           <input type="text" id="searchBar" placeholder="Search tags..." />
@@ -19,8 +20,170 @@
       </nav>
     </header>
 
-    <main id="stickerGrid"></main>
+    <main class="hero-main">
+      <div class="hero-main-bg"></div>
+      <div class="hero-main-content">
+        <div class="hero-main-text">
+          <h1>Tas Consultancy</h1>
+          <p class="hero-main-desc">
+            We are your one-stop Amazon partner for Product Research & Sourcing,
+            Listing Optimization, Amazon Advertising, Product Photography, and
+            Store Management. Grow, optimize, and scale your Amazon business
+            with our expert team.
+          </p>
+          <ul class="hero-main-functions">
+            <li>Product Research & Sourcing</li>
+            <li>Listing Optimization</li>
+            <li>Amazon Advertising</li>
+            <li>Product Photography</li>
+            <li>Amazon Store Management</li>
+          </ul>
+        </div>
+        <div class="hero-main-media">
+          <div class="hero-main-video-container">
+            <video
+              controls
+              poster="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=900&q=80"
+              class="hero-main-video"
+            >
+              <source
+                src="https://tasconsultantfze.com/wp-content/uploads/2021/07/Black-White-and-Gold-TV-Entertainment-YouTube-Video-Intro-3.mp4"
+                type="video/mp4"
+              />
+              Your browser does not support the video tag.
+            </video>
+            <div class="hero-main-video-label">We thrive on your success!</div>
+          </div>
+        </div>
+      </div>
+    </main>
 
-    <script type="module" src="main.js"></script>
+    <section class="section" id="research">
+      <div
+        class="section-img"
+        style="
+          background-image: url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=600&q=80');
+        "
+      ></div>
+      <div class="section-content">
+        <h2>Product Research & Sourcing</h2>
+        <p>
+          Discover high-potential products with our data-driven research and
+          reliable sourcing network. We analyze trends, competition, and
+          profitability to ensure your Amazon venture starts with the right
+          products and trusted suppliers.
+        </p>
+      </div>
+    </section>
+
+    <section class="section" id="listing">
+      <div
+        class="section-img"
+        style="
+          background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80');
+        "
+      ></div>
+      <div class="section-content">
+        <h2>Listing Optimization</h2>
+        <p>
+          Maximize visibility and conversion with expertly crafted titles,
+          bullet points, and descriptions. Our team leverages keyword research
+          and proven copywriting to make your listings stand out and rank higher
+          in Amazon search results.
+        </p>
+      </div>
+    </section>
+
+    <section class="section" id="advertising">
+      <div
+        class="section-img"
+        style="
+          background-image: url('https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=600&q=80');
+        "
+      ></div>
+      <div class="section-content">
+        <h2>Amazon Advertising</h2>
+        <p>
+          Drive targeted traffic and boost sales with our tailored Amazon PPC
+          and DSP campaigns. We monitor, optimize, and scale your ads to ensure
+          maximum ROI and sustainable growth for your brand.
+        </p>
+      </div>
+    </section>
+
+    <section class="section" id="photography">
+      <div
+        class="section-img"
+        style="
+          background-image: url('https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=600&q=80');
+        "
+      ></div>
+      <div class="section-content">
+        <h2>Product Photography</h2>
+        <p>
+          Showcase your products with stunning, high-converting images. Our
+          creative team delivers professional photography and lifestyle shots
+          that meet Amazon's guidelines and captivate shoppers.
+        </p>
+      </div>
+    </section>
+
+    <section class="section" id="management">
+      <div
+        class="section-img"
+        style="
+          background-image: url('https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=600&q=80');
+        "
+      ></div>
+      <div class="section-content">
+        <h2>Amazon Store Management</h2>
+        <p>
+          Focus on your business while we handle the day-to-day operations. From
+          inventory and order management to customer service and reporting, we
+          ensure your Amazon store runs smoothly and efficiently.
+        </p>
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <h2>About Us</h2>
+      <p>
+        Tas Consultancy is a dedicated Amazon services agency with a passion for
+        helping brands succeed in the world's largest marketplace. Our
+        experienced team combines analytical rigor, creative flair, and hands-on
+        expertise to deliver measurable results at every stage of your Amazon
+        journey.
+      </p>
+    </section>
+
+    <section class="testimonials" id="testimonials">
+      <h2>Hear from Our Customers</h2>
+      <div class="testimonials-list">
+        <div class="testimonial">
+          Tas Consultancy helped us find profitable products and launch quickly.
+          Their research and sourcing support is top-notch!
+          <div class="testimonial-author">— Priya S., FBA Seller</div>
+        </div>
+        <div class="testimonial">
+          Our listings now rank higher and convert better thanks to their
+          optimization and photography services.
+          <div class="testimonial-author">
+            — John D., Private Label Brand Owner
+          </div>
+        </div>
+        <div class="testimonial">
+          The advertising team at Tas Consultancy scaled our campaigns
+          efficiently, resulting in record-breaking sales months.
+          <div class="testimonial-author">— Emily R., Amazon Vendor</div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      &copy; 2025 Tas Consultancy. All rights reserved. | Designed for Amazon
+      sellers by Tas Consultancy Team
+    </footer>
+
+    <script type="module" src="js/main.js"></script>
   </body>
 </html>
