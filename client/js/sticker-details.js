@@ -1,4 +1,4 @@
-import { ApiRoutes } from "../client/ApiRoutes.js";
+import { ApiRoutes } from "./ApiRoutes.js";
 const webUrl = "https://shop.ashwink.com.np";
 document.addEventListener("DOMContentLoaded", async function () {
   const queryString = window.location.search;
