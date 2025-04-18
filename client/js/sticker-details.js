@@ -60,7 +60,7 @@ document.addEventListener("DOMContentLoaded", async function () {
             if (!response.ok) throw new Error("Failed to add to cart");
 
             const result = await response.json();
-            if (result.success) {
+            if (result.Result === "Success") {
               window.location.href = "/cart.html";
             } else {
               const errorText = await result;
