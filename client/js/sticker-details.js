@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     }`;
 
     // Check if user is logged in
-    const isLoggedIn = true; // Replace with your authentication logic
+    const isLoggedIn = true; // Replace with authentication logic
     if (!isLoggedIn) {
       document.getElementById("loginPrompt").style.display = "flex";
       document.getElementById("loginPrompt").style.gap = "1rem";
@@ -42,16 +42,70 @@ document.addEventListener("DOMContentLoaded", async function () {
     } else {
       document.getElementById("loginPrompt").style.display = "none";
       document.getElementById("cartButton").style.display = "block";
-      // Add event listener for buy button click
+
+      // Cart button handler
       document
         .getElementById("cartButton")
-        .addEventListener("click", function () {
-          // Implement buy functionality here
-          alert(`Message 986847584 typing ` + stickerId);
+        .addEventListener("click", async function () {
+          try {
+            const response = await fetch(`${ApiRoutes.AddToCart}`, {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                sticker_id: stickerId,
+              }),
+            });
+
+            if (!response.ok) throw new Error("Failed to add to cart");
+
+            const result = await response.json();
+            if (result.success) {
+              window.location.href = "/cart.html";
+            } else {
+              throw new Error(result.message || "Failed to add to cart");
+            }
+          } catch (error) {
+            console.error("Cart error:", error);
+            alert(`Error: ${error.message}`);
+          }
         });
     }
   } else {
     // Sticker not found
     alert("Sticker not found!");
+  }
+  // Recommendations sidebar logic
+  const recommendationsList = document.getElementById("recommendationsList");
+  recommendationsList.innerHTML = "";
+  // Get the first tag for recommendations (if any)
+  const tag = sticker.Tags?.[0]?.Name;
+  if (tag) {
+    const recRes = await fetch(
+      `${ApiRoutes.SearchStickers}?Tag=${encodeURIComponent(tag)}`
+    );
+    if (!recRes.ok) {
+      throw new Error(`HTTP error! status: ${recRes.status}`);
+    }
+    const recData = await recRes.json();
+    // Filter out the current sticker from recommendations
+    (recData || [])
+      .filter((rec) => rec.Stkr?.StickerID !== stickerId)
+      .forEach((rec) => {
+        const li = document.createElement("li");
+        const img = document.createElement("img");
+        img.src = webUrl + (rec.Images?.[0]?.Path || "");
+        img.alt = rec.Stkr?.Name || "Recommended Product";
+        const span = document.createElement("span");
+        span.textContent = rec.Stkr?.Name || "";
+        li.appendChild(img);
+        li.appendChild(span);
+        li.style.cursor = "pointer";
+        li.addEventListener("click", () => {
+          window.location.href = `?id=${rec.Stkr.StickerID}`;
+        });
+        recommendationsList.appendChild(li);
+      });
   }
 });
