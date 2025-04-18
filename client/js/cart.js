@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         // Price cell
         const priceTd = document.createElement("td");
         priceTd.className = "cart-td-price";
-        priceTd.textContent = `${total}`;
+        priceTd.textContent = `${price}`;
 
         row.appendChild(imgTd);
         row.appendChild(nameTd);
@@ -66,10 +66,10 @@ document.addEventListener("DOMContentLoaded", async function () {
       cartList.appendChild(row);
     }
 
-    cartTotalPrice.textContent = `NPR ${total}`;
+    cartTotalPrice.textContent = `${total}`;
   } catch (error) {
     cartList.innerHTML = `<tr><td colspan="3" style="color: orange; text-align:center;">No cart items.</td></tr>`;
-    cartTotalPrice.textContent = "NPR 0";
+    cartTotalPrice.textContent = "0";
     console.error(error);
   }
 });
