@@ -45,6 +45,7 @@ signupForm.addEventListener("submit", async (e) => {
     }
 
     alert("Signup successful!");
+    showForm("login-div");
   } catch (error) {
     console.error("Signup error:", error);
     alert(`Signup failed: ${error.message}`);
