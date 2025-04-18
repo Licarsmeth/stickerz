@@ -1,42 +1,42 @@
-// DOM Elements
-const signupForm = document.getElementById("signup-form");
-const loginForm = document.getElementById("login-form");
-const logoutSection = document.getElementById("logout-section");
-const usernameDisplay = document.getElementById("username-display");
-const logoutButton = document.getElementById("logout-button");
-const loginLink = document.getElementById("login-link");
-const signupLink = document.getElementById("signup-link");
+const divs = [
+  document.getElementById("login-div"),
+  document.getElementById("signup-div"),
+  document.getElementById("logout-div"),
+];
 
-// Form visibility functions
-function showLoginForm() {
-  signupForm.style.display = "none";
-  logoutSection.style.display = "none";
-  loginForm.style.display = "block";
-}
-
-function showSignupForm() {
-  loginForm.style.display = "none";
-  logoutSection.style.display = "none";
-  signupForm.style.display = "block";
+function showForm(div) {
+  divs.forEach((d) => {
+    d.style.display = "none";
+  });
+  document.getElementById(div).style.display = "block";
 }
 
 function showLogoutSection(username) {
-  loginForm.style.display = "none";
-  signupForm.style.display = "none";
-  usernameDisplay.textContent = username;
-  logoutSection.style.display = "block";
+  showForm("logout-div");
+  const uname = document.getElementById("username-display");
+  uname.textContent = username;
 }
 
+function login(user, pw, xhr) {
+  if (xhr === undefined) {
+    xhr = new XMLHttpRequest();
+  }
+  xhr.open("POST", "/api/login", false, user, pw);
+  xhr.send();
+  if (xhr.status == 200) {
+    return true;
+  }
+  return false;
+}
 // Event listeners
+const signupForm = document.getElementById("signup-form");
 signupForm.addEventListener("submit", async (e) => {
   e.preventDefault();
-
   try {
-    console.log("from signup");
     const formData = new FormData(signupForm);
     const response = await fetch("/api/signup", {
       method: "POST",
-      body: formData,
+      body: new URLSearchParams(formData),
     });
 
     if (!response.ok) {
@@ -45,55 +45,43 @@ signupForm.addEventListener("submit", async (e) => {
     }
 
     alert("Signup successful!");
-    showLoginForm();
   } catch (error) {
     console.error("Signup error:", error);
     alert(`Signup failed: ${error.message}`);
   }
 });
 
-loginForm.addEventListener("submit", async (e) => {
+const loginForm = document.getElementById("login-form");
+loginForm.addEventListener("submit", (e) => {
   e.preventDefault();
-
-  try {
-    const formData = new FormData(loginForm);
-    const user = formData.get("user");
-    const password = formData.get("password");
-
-    const response = await fetch("/api/login", {
-      method: "POST",
-      headers: {
-        Authorization: `Basic ${btoa(`${user}:${password}`)}`,
-      },
-    });
-
-    if (!response.ok) {
-      throw new Error("Invalid username or password");
-    }
-
+  const formData = new FormData(loginForm);
+  const user = formData.get("user");
+  const password = formData.get("password");
+  var xhr = new XMLHttpRequest();
+  if (login(user, password, xhr)) {
     showLogoutSection(user);
-  } catch (error) {
-    console.error("Login error:", error);
-    alert(error.message);
+    return;
   }
+  console.error("Login error:", xhr.response);
+  alert("couldn't login");
 });
-
+const logoutButton = document.getElementById("logout-button");
 logoutButton.addEventListener("click", () => {
-  // Clear authentication state
-  // Not implemented yet
-  showSignupForm();
-  alert("Logged out successfully!");
+  login("deadbeef", "deadbeef");
+  showForm("login-div");
 });
 
+const loginLink = document.getElementById("login-link");
 loginLink.addEventListener("click", (e) => {
   e.preventDefault();
-  showLoginForm();
+  showForm("login-div");
 });
 
+const signupLink = document.getElementById("signup-link");
 signupLink.addEventListener("click", (e) => {
   e.preventDefault();
-  showSignupForm();
+  showForm("signup-div");
 });
 
 // Initialize form states
-showSignupForm();
+showForm("signup-div");
