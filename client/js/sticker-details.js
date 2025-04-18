@@ -48,14 +48,13 @@ document.addEventListener("DOMContentLoaded", async function () {
         .getElementById("cartButton")
         .addEventListener("click", async function () {
           try {
+            const params = new URLSearchParams({ sticker_id: stickerId });
             const response = await fetch(`${ApiRoutes.AddToCart}`, {
               method: "POST",
               headers: {
-                "Content-Type": "application/json",
+                "Content-Type": "application/x-www-form-urlencoded",
               },
-              body: JSON.stringify({
-                sticker_id: stickerId,
-              }),
+              body: params
             });
 
             if (!response.ok) throw new Error("Failed to add to cart");
