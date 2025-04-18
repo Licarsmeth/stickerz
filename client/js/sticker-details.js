@@ -65,9 +65,7 @@ document.addEventListener("DOMContentLoaded", async function () {
             } else {
               const errorText = await result;
               console.log(errorText);
-              throw new Error(
-                result.message || `Failed to add to cart ${errorText.text()}`
-              );
+              throw new Error(result.message || `Failed to add to cart`);
             }
           } catch (error) {
             console.error("Cart error:", error);
