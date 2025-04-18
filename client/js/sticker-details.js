@@ -41,10 +41,10 @@ document.addEventListener("DOMContentLoaded", async function () {
         });
     } else {
       document.getElementById("loginPrompt").style.display = "none";
-      document.getElementById("buyButton").style.display = "block";
+      document.getElementById("cartButton").style.display = "block";
       // Add event listener for buy button click
       document
-        .getElementById("buyButton")
+        .getElementById("cartButton")
         .addEventListener("click", function () {
           // Implement buy functionality here
           alert(`Message 986847584 typing ` + stickerId);
