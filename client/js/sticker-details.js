@@ -14,7 +14,6 @@ document.addEventListener("DOMContentLoaded", async function () {
     document.querySelector(".container h1").textContent = sticker.Stkr.Name;
 
     const imageContainer = document.getElementById("stickerImageContainer");
-    console.log(sticker.Images);
     sticker?.Images.forEach((image) => {
       var imgElement = document.createElement("img");
       imgElement.src = `${webUrl}${image?.Path}`;
@@ -86,12 +85,18 @@ document.addEventListener("DOMContentLoaded", async function () {
     const recRes = await fetch(
       `${ApiRoutes.SearchStickers}?Tag=${encodeURIComponent(tag)}`
     );
+    console.log(`stickers from tag are: ${recRes}`);
     if (!recRes.ok) {
-      throw new Error(`HTTP error! status: ${recRes.status}`);
+      throw new Error(
+        `Error while fetching stickers from tag! status: ${recRes.status}`
+      );
     }
     const recData = await recRes.json();
-    // Filter out the current sticker from recommendations
-    (recData || [])
+    console
+      .log(`stickers from tag in json: ${recData}`)(
+        // Filter out the current sticker from recommendations
+        recData || []
+      )
       .filter((rec) => rec.Stkr?.StickerID !== stickerId)
       .forEach((rec) => {
         const li = document.createElement("li");
