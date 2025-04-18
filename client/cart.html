@@ -1,24 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cart</title>
-    <link rel="stylesheet" href="css/indexstyle.css" />
-</head>
-<body>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
     <header>
-        <nav>
-          <h1>Tas Consultancy</h1>
-          <div>
-            <a href="index.html">Home</a>
-            <a href="shop.html">Shop</a>
-            <a href="upload.html">Upload</a>
-            <a href="login.html">Login</a>
-            <input type="text" id="searchBar" placeholder="Search tags..." />
-          </div>
-        </nav>
-      </header>
-      hehe cart
-</body>
+      <nav>
+        <h1>Tas Consultancy</h1>
+        <div>
+          <a href="index.html">Home</a>
+          <a href="shop.html">Shop</a>
+          <a href="upload.html">Upload</a>
+          <a href="login.html">Login</a>
+          <a href="cart.html">Cart</a>
+          <input type="text" id="searchBar" placeholder="Search tags..." />
+        </div>
+      </nav>
+    </header>
+    <div id="cart-container">
+      <h1 id="cart-title">Your Cart</h1>
+      <table id="cart-table">
+        <thead>
+          <tr>
+            <th class="cart-th-image">Image</th>
+            <th class="cart-th-name">Name</th>
+            <th class="cart-th-price">Price</th>
+          </tr>
+        </thead>
+        <tbody id="cart-list">
+          <!-- Cart items will be injected here by JS -->
+        </tbody>
+      </table>
+      <div id="cart-summary">
+        <span id="cart-total-label">Total:</span>
+        <span id="cart-total-price">0</span>
+      </div>
+    </div>
+    <script type="module" src="js/cart.js"></script>
+  </body>
 </html>

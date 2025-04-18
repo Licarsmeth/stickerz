@@ -315,7 +315,106 @@ body .login-container {
   text-align: center;
 }
 
-  footer {
-    position: absolute;
-    bottom: 10px;
-  }
+#cart-container {
+  max-width: 600px;
+  margin: 48px auto;
+  background: #111;
+  color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.12);
+  padding: 32px 24px 24px 24px;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+#cart-title {
+  font-size: 2rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  margin-bottom: 28px;
+  color: #fff;
+  border-left: 6px solid orange;
+  padding-left: 12px;
+}
+
+#cart-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 32px;
+}
+
+#cart-table th,
+#cart-table td {
+  padding: 12px 8px;
+  text-align: left;
+}
+
+#cart-table thead {
+  background: #191919;
+  border-radius: 8px 8px 0 0;
+}
+
+#cart-table th {
+  font-size: 1.1rem;
+  color: orange;
+  border-bottom: 2px solid #222;
+}
+
+#cart-table tr {
+  border-bottom: 1px solid #222;
+}
+
+#cart-table td {
+  vertical-align: middle;
+}
+
+.cart-th-image, .cart-td-image {
+  width: 70px;
+}
+
+.cart-td-image img {
+  width: 56px;
+  height: 56px;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 1.5px solid #222;
+  background: #222;
+}
+
+.cart-th-name, .cart-td-name {
+  width: 60%;
+}
+
+.cart-th-price, .cart-td-price {
+  width: 20%;
+  color: orange;
+  font-weight: bold;
+}
+
+#cart-summary {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  font-size: 1.3rem;
+  margin-top: 18px;
+  background: #191919;
+  border-radius: 6px;
+  padding: 16px 24px;
+}
+
+#cart-total-label {
+  margin-right: 18px;
+  color: #fff;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+#cart-total-price {
+  color: orange;
+  font-weight: bold;
+  font-size: 1.4rem;
+}
+
+footer {
+  position: absolute;
+  bottom: 10px;
+}
