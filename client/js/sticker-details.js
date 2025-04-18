@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", async function () {
               headers: {
                 "Content-Type": "application/x-www-form-urlencoded",
               },
-              body: params,
+              body: params.toString(),
             });
 
             if (!response.ok) throw new Error("Failed to add to cart");
@@ -63,8 +63,11 @@ document.addEventListener("DOMContentLoaded", async function () {
             if (result.success) {
               window.location.href = "/cart.html";
             } else {
-              console.log(result.message);
-              throw new Error(result.message || "Failed to add to cart");
+              const errorText = await result;
+              console.log(errorText);
+              throw new Error(
+                result.message || `Failed to add to cart ${errorText.text()}`
+              );
             }
           } catch (error) {
             console.error("Cart error:", error);
