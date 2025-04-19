@@ -74,10 +74,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     ).length;
   };
 
-  document
-    .getElementById("refreshUsersBtn")
-    .addEventListener("click", fetchUsers);
-
   // Initial load
   fetchUsers();
 });
