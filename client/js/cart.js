@@ -3,6 +3,7 @@ import { ApiRoutes } from "./ApiRoutes.js";
 document.addEventListener("DOMContentLoaded", async function () {
   const cartList = document.getElementById("cart-list");
   const cartTotalPrice = document.getElementById("cart-total-price");
+  const checkoutButton = document.getElementsByClassName("checkout");
 
   try {
     const response = await fetch(ApiRoutes.GetCartItems, {
@@ -69,4 +70,20 @@ document.addEventListener("DOMContentLoaded", async function () {
     cartTotalPrice.textContent = "0";
     console.error(error);
   }
+  checkoutButton.addEventListener("click", async () => {
+    try {
+      const response = await fetch(ApiRoutes.CheckoutCartItems, {
+        method: "POST",
+        credentials: "include",
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      alert("Order placed successfully!");
+    } catch (error) {
+      console.error("Checkout failed:", error);
+      alert("Failed to complete checkout. Please try again.");
+    }
+  });
 });

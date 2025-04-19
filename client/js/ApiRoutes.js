@@ -8,6 +8,7 @@ export const ApiRoutes = {
   SearchStickers: baseUrl + "sticker/search",
   AddToCart: baseUrl + "cart/add",
   GetCartItems: baseUrl + "cart/get",
+  CheckoutCartItems: baseUrl + "cart/checkout",
   GetProfileDetails: baseUrl + "profile/get",
   GetProfileHistory: baseUrl + "profile/history",
   GetAllUsers: baseUrl + "profile/all",
