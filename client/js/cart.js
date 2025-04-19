@@ -82,7 +82,8 @@ document.addEventListener("DOMContentLoaded", async function () {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
       alert("Order placed successfully!");
-      cartList.innerHTML= "";
+      cartList.innerHTML = "";
+      cartTotalPrice.textContent = "0";
     } catch (error) {
       console.error("Checkout failed:", error);
       alert("Failed to complete checkout. Please try again.");

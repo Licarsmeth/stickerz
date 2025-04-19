@@ -107,7 +107,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         li.appendChild(span);
         li.style.cursor = "pointer";
         li.addEventListener("click", () => {
-          window.location.href = `?id=${rec.Stkr.StickerID}`;
+          window.location.href = `?id=${rec.Stkr.Id}`;
         });
         recommendationsList.appendChild(li);
       });
