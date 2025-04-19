@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="css/adminstyle.css">
+</head>
+<body>
+    <header>
+        <nav>
+          <h1>Tas Consultancy</h1>
+          <div>
+            <a href="index.html">Home</a>
+            <a href="shop.html">Shop</a>
+            <a href="upload.html">Upload</a>
+            <a href="login.html">Login</a>
+            <a href="cart.html">Cart</a>
+            <input type="text" id="searchBar" placeholder="Search tags..." />
+          </div>
+        </nav>
+      </header>
+    <div class="admin-container">
+        <header class="admin-header">
+            <h1>User Management</h1>
+            <div class="admin-actions">
+                <button id="refreshUsersBtn" class="refresh-btn">↻ Refresh Users</button>
+                <button class="logout-btn">Log Out</button>
+            </div>
+        </header>
+
+        <main class="admin-main">
+            <div class="stats-summary">
+                <div class="stat-card">
+                    <h3>Total Users</h3>
+                    <p id="totalUsers" class="stat-value">0</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Admin Users</h3>
+                    <p id="adminUsers" class="stat-value">0</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Normal Users</h3>
+                    <p id="normalUsers" class="stat-value">0</p>
+                </div>
+            </div>
+
+            <div class="data-table-container">
+                <table class="user-table">
+                    <thead>
+                        <tr>
+                            <th>User ID</th>
+                            <th>Username</th>
+                            <th>Account Type</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="userTableBody">
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+    <script type="module" src="js/admin.js"></script>
+</body>
+</html>

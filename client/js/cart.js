@@ -1,6 +1,3 @@
-// cart.js
-
-const webUrl = "https://shop.ashwink.com.np";
 import { ApiRoutes } from "./ApiRoutes.js";
 
 document.addEventListener("DOMContentLoaded", async function () {

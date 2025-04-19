@@ -415,6 +415,11 @@ body .login-container {
   font-size: 1.4rem;
 }
 
+.checkout{
+  text-align: center;
+  margin-left: 45%;
+}
+
 footer {
   position: absolute;
   bottom: 10px;

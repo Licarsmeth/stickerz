@@ -1,4 +1,4 @@
-const baseUrl = "https://shop.ashwink.com.np/api/";
+const baseUrl = "/api/";
 export const ApiRoutes = {
   Login: baseUrl + "login",
   Signup: baseUrl + "signup",
@@ -7,5 +7,8 @@ export const ApiRoutes = {
   Stickers: baseUrl + "sticker/all",
   SearchStickers: baseUrl + "sticker/search",
   AddToCart: baseUrl + "cart/add",
-  GetCartItems: baseUrl + "cart/get"
+  GetCartItems: baseUrl + "cart/get",
+  GetProfileDetails: baseUrl + "profile/get",
+  GetProfileHistory: baseUrl + "profile/history",
+  GetAllUsers: baseUrl + "profile/all",
 };

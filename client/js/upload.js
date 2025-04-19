@@ -35,29 +35,28 @@ function newTag() {
 
 //add sticker functionality
 function submitForm(event) {
-    // Prevent the default form submission behavior
-    event.preventDefault();
-  
-    // Get the form element
-    const form = document.getElementById('stickerForm');
-  
-    // Collect form data
-    const formData = new FormData(form);
-  
-    // Make a POST request to the server
-    fetch('/api/sticker/add', {
-      method: 'POST',
-      body: formData
-    })
-    .then(response => response.json())
-    .then(data => {
+  // Prevent the default form submission behavior
+  event.preventDefault();
+
+  // Get the form element
+  const form = document.getElementById("stickerForm");
+
+  // Collect form data
+  const formData = new FormData(form);
+
+  // Make a POST request to the server
+  fetch("/api/sticker/add", {
+    method: "POST",
+    body: formData,
+  })
+    .then((response) => response.json())
+    .then((data) => {
       // Handle the response data (e.g., display the new sticker ID)
-      console.log('New sticker ID:', data.id);
+      console.log("New sticker ID:", data.Id);
       // You can perform further actions based on the response here
     })
-    .catch(error => {
-      console.error('Error:', error);
+    .catch((error) => {
+      console.error("Error:", error);
       // Handle errors if any
     });
-  }
-  
+}

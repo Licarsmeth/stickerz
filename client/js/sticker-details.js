@@ -83,7 +83,7 @@ document.addEventListener("DOMContentLoaded", async function () {
   const tag = sticker.Tags?.[0]?.Name;
   if (tag) {
     const recRes = await fetch(
-      `${ApiRoutes.SearchStickers}?Tag=${encodeURIComponent(tag)}`
+      `${ApiRoutes.SearchStickers}?tag=${encodeURIComponent(tag)}`
     );
     console.log(`stickers from tag are: ${recRes}`);
     if (!recRes.ok) {
@@ -92,11 +92,9 @@ document.addEventListener("DOMContentLoaded", async function () {
       );
     }
     const recData = await recRes.json();
-    console
-      .log(`stickers from tag in json: ${recData}`)(
-        // Filter out the current sticker from recommendations
-        recData || []
-      )
+    console.log(`stickers from tag in json: ${recData}`);
+    // Filter out the current sticker from recommendations
+    recData
       .filter((rec) => rec.Stkr?.StickerID !== stickerId)
       .forEach((rec) => {
         const li = document.createElement("li");
