@@ -30,19 +30,37 @@ document.addEventListener("DOMContentLoaded", async () => {
       const row = document.createElement("tr");
 
       row.innerHTML = `
-                <td>${user.Id}</td>
-                <td>${user.Username}</td>
-                <td class="account-type ${user.Mode.toLowerCase()}">
-                    ${user.Mode.charAt(0).toUpperCase() + user.Mode.slice(1)}
-                </td>
-                <td>
-                    <button class="view-btn" data-userid="${
-                      user.Id
-                    }">View</button>
-                </td>
-            `;
+        <td>${user.Id}</td>
+        <td>${user.Username}</td>
+        <td class="account-type ${user.Mode.toLowerCase()}">
+          ${user.Mode.charAt(0).toUpperCase() + user.Mode.slice(1)}
+        </td>
+        <td>
+          <button class="view-btn" data-userid="${user.Id}">View</button>
+        </td>
+      `;
 
       tbody.appendChild(row);
+    });
+
+    tbody.addEventListener("click", async (event) => {
+      if (event.target.classList.contains("view-btn")) {
+        const userId = event.target.dataset.userid;
+
+        try {
+          const response = await fetch(`/api/profile/get?user_id=${userId}`);
+
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
+
+          // Redirect to profile page with user ID
+          window.location.href = `profile.html`;
+        } catch (error) {
+          console.error("Profile fetch error:", error);
+          alert("Failed to load user profile");
+        }
+      }
     });
   };
 
