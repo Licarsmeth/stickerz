@@ -3,7 +3,6 @@ import { ApiRoutes } from "./ApiRoutes.js";
 document.addEventListener("DOMContentLoaded", async function () {
   const cartList = document.getElementById("cart-list");
   const cartTotalPrice = document.getElementById("cart-total-price");
-  const checkoutButton = document.getElementByClassName("checkout");
 
   try {
     const response = await fetch(ApiRoutes.GetCartItems, {
@@ -70,6 +69,8 @@ document.addEventListener("DOMContentLoaded", async function () {
     cartTotalPrice.textContent = "0";
     console.error(error);
   }
+
+  const checkoutButton = document.querySelector(".checkout");
   checkoutButton.addEventListener("click", async () => {
     try {
       const response = await fetch(ApiRoutes.CheckoutCartItems, {
