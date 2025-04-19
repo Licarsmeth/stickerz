@@ -3,7 +3,7 @@ import { ApiRoutes } from "./ApiRoutes.js";
 document.addEventListener("DOMContentLoaded", async function () {
   const cartList = document.getElementById("cart-list");
   const cartTotalPrice = document.getElementById("cart-total-price");
-  const checkoutButton = document.getElementsByClassName("checkout");
+  const checkoutButton = document.getElementByClassName("checkout");
 
   try {
     const response = await fetch(ApiRoutes.GetCartItems, {
