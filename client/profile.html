@@ -218,7 +218,15 @@
       </section>
     </main>
     <script>
-      fetch("/api/profile/get")
+      const urlParams = new URLSearchParams(window.location.search);
+      const userId = urlParams.get("user_id");
+
+      let apiUrl = "/api/profile/get";
+      if (userId) {
+        apiUrl = `${apiUrl}?user_id=${encodeURIComponent(userId)}`;
+      }
+
+      fetch(apiUrl)
         .then((res) => res.json())
         .then((profile) => {
           document.getElementById("profile-username").textContent =
