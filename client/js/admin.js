@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", async () => {
           }
 
           // Redirect to profile page with user ID
-          window.location.href = `profile.html`;
+          window.location.href = `profile.html?user_id=${userId}`;
         } catch (error) {
           console.error("Profile fetch error:", error);
           alert("Failed to load user profile");
