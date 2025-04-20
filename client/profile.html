@@ -223,12 +223,12 @@
       const urlParams = new URLSearchParams(window.location.search);
       const userId = urlParams.get("user_id");
 
-      let apiUrl = "/api/profile/get";
+      let getUrl = "/api/profile/get";
       if (userId) {
-        apiUrl = `${apiUrl}?user_id=${encodeURIComponent(userId)}`;
+        getUrl = `${getUrl}?user_id=${encodeURIComponent(userId)}`;
       }
 
-      fetch(apiUrl)
+      fetch(getUrl)
         .then((res) => res.json())
         .then((profile) => {
           document.getElementById("profile-username").textContent =
@@ -237,7 +237,12 @@
             profile.PhoneNo;
         });
 
-      fetch("/api/profile/history")
+      let historyUrl = "/api/profile/history";
+      if (userId) {
+        historyUrl = `${historyUrl}?user_id=${encodeURIComponent(userId)}`;
+      }
+
+      fetch(historyUrl)
         .then((res) => res.json())
         .then((history) => {
           const tbody = document.getElementById("history-body");
