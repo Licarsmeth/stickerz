@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       updateUserStats(data);
     } catch (error) {
       console.error("Error:", error);
-      alert("Failed to load user data");
+      alert("Login as admin to view the details");
     }
   };
 
