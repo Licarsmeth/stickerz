@@ -1,9 +1,11 @@
 // const apiUrl = "http://ashwink.com.np";
+import { handleAdminNav } from "./adjustNav.js";
 document.addEventListener("DOMContentLoaded", function () {
   const loginForm = document.getElementById("login-form");
   const errorMessage = document.getElementById("error-message");
 
   loginForm.addEventListener("submit", async function (event) {
+    handleAdminNav()
     event.preventDefault();
 
     const username = document.getElementById("username").value;

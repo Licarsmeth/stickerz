@@ -1,6 +1,8 @@
 import { ApiRoutes } from "./ApiRoutes.js";
+import { handleAdminNav } from "./adjustNav.js";
 
 document.addEventListener("DOMContentLoaded", async function () {
+  handleAdminNav();
   const cartList = document.getElementById("cart-list");
   const cartTotalPrice = document.getElementById("cart-total-price");
 

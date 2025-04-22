@@ -1,6 +1,8 @@
 import { ApiRoutes } from "./ApiRoutes.js";
+import { handleAdminNav } from "./adjustNav.js";
 const webUrl = "https://shop.ashwink.com.np";
 document.addEventListener("DOMContentLoaded", async function () {
+  handleAdminNav();
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
   const stickerId = urlParams.get("id");

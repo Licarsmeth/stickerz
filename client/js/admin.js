@@ -1,7 +1,9 @@
 import { ApiRoutes } from "./ApiRoutes.js";
+import { handleAdminNav } from "./adjustNav.js";
 
 // import { ApiRoutes } from "./ApiRoutes";
 document.addEventListener("DOMContentLoaded", async () => {
+  handleAdminNav();
   const fetchUsers = async () => {
     try {
       const response = await fetch(ApiRoutes.GetAllUsers, {

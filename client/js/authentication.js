@@ -1,3 +1,9 @@
+import { handleAdminNav } from "./adjustNav.js";
+
+document.addEventListener("DOMContentLoaded", () => {
+    handleAdminNav();
+  });
+
 const divs = [
   document.getElementById("login-div"),
   document.getElementById("signup-div"),

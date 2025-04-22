@@ -181,10 +181,10 @@
         <div>
           <a href="index.html">Home</a>
           <a href="shop.html">Shop</a>
-          <a href="upload.html">Upload</a>
+          <a href="upload.html" id="upload-nav">Upload</a>
           <a href="login.html">Login</a>
           <a href="cart.html">Cart</a>
-          <a href="admin.html">Admin</a>
+          <a href="admin.html" id="admin-nav">Admin</a>
           <a href="profile.html">Profile</a>
           <input type="text" id="searchBar" placeholder="Search tags..." />
         </div>
@@ -219,54 +219,7 @@
         </table>
       </section>
     </main>
-    <script>
-      const urlParams = new URLSearchParams(window.location.search);
-      const userId = urlParams.get("user_id");
-
-      let getUrl = "/api/profile/get";
-      if (userId) {
-        getUrl = `${getUrl}?user_id=${encodeURIComponent(userId)}`;
-      }
-
-      fetch(getUrl)
-        .then((res) => res.json())
-        .then((profile) => {
-          document.getElementById("profile-username").textContent =
-            profile.Username;
-          document.getElementById("profile-phone").textContent =
-            profile.PhoneNo;
-        });
-
-      let historyUrl = "/api/profile/history";
-      if (userId) {
-        historyUrl = `${historyUrl}?user_id=${encodeURIComponent(userId)}`;
-      }
-
-      fetch(historyUrl)
-        .then((res) => res.json())
-        .then((history) => {
-          const tbody = document.getElementById("history-body");
-          tbody.innerHTML = "";
-          if (Array.isArray(history) && history.length > 0) {
-            history.forEach((tx) => {
-              const tr = document.createElement("tr");
-              // Date, UserId, Price, Item
-              const date = new Date(tx.Date).toLocaleString();
-              tr.innerHTML = `
-              <td>${date}</td>
-              <td>${tx.Item || ""}</td>
-              <td style="color:var(--orange);font-weight:600;">${
-                tx.Price ? "NPR " + tx.Price : ""
-              }</td>
-            `;
-              tbody.appendChild(tr);
-            });
-          } else {
-            const tr = document.createElement("tr");
-            tr.innerHTML = `<td colspan="3" style="text-align:center;color:var(--orange);">No transactions found.</td>`;
-            tbody.appendChild(tr);
-          }
-        });
-    </script>
+    <script type="module" src="js/profile.js"></script>
+    
   </body>
 </html>

@@ -1,3 +1,9 @@
+import { handleAdminNav } from "./adjustNav.js";
+
+document.addEventListener("DOMContentLoaded", () => {
+  handleAdminNav();
+});
+
 function appendElement(data) {
   const container = document.getElementById(data.containerId);
 

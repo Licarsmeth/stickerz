@@ -1,9 +1,11 @@
 import displayStickers from "./displayStickers.js";
+import { handleAdminNav } from "./adjustNav.js";
 import { ApiRoutes } from "./ApiRoutes.js";
 
 let stickers = []
 
 document.addEventListener('DOMContentLoaded', async function() {
+  handleAdminNav();
   const res = await fetch(`${ApiRoutes.Stickers}`); // the data from the base url is fetched
   stickers = await res.json();
   displayStickers(stickers);
